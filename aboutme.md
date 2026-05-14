@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About me
-subtitle: Why you'd want to go on a date with me
+subtitle: My life in a glance through career and education
 ---
 
 I have spent probably too much time in academia (BSc+MSc1+MSc2+PhD), building a well-rounded, heterogeneous profile in Energy. 

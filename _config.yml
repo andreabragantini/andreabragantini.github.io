@@ -32,7 +32,7 @@ navbar-links:
 
 # Image to show in the navigation bar - works best with a square image
 # Remove this parameter if you don't want an image in the navbar
-avatar: "/assets/img/avatar-icon.png"
+avatar: "/assets/img/LogoAB.png"
 
 # By default, the image is cut into a circle. You can disable this behaviour by setting 'round-avatar: false'
 round-avatar: true
@@ -56,15 +56,15 @@ social-network-links:
   github: andreabragantini
 #  twitter: 
 #  patreon: 
-  youtube: "@daattali"
+#  youtube: "@daattali"
   whatsapp: +393479862443
-#  medium: yourname
+  medium: "@andrea.bragantini"
 #  reddit: yourname or r/yoursubreddit
-#  linkedin: daattali
+  linkedin: andreabragantini
 #  xing: yourname
 #  stackoverflow: "3943160/daattali"
 #  snapchat: deanat78
-#  instagram: deanat78
+  instagram: andreabragantini
 #  spotify: yourname
 #  telephone: +14159998888
 #  steam: deanat78
@@ -78,7 +78,7 @@ social-network-links:
   google-scholar: https://scholar.google.com/citations?hl=en&user=h-PX74UAAAAJ
 #  discord: "invite_code" or "users/userid" or "invite/invite_code"
 #  kaggle: yourname
-#  hackerrank: yourname
+  hackerrank: andrea_aldo_bra1
 #  gitlab: yourname
 #  itchio: yourname
 #  untappd: yourname
@@ -102,7 +102,7 @@ share-links-active:
 
 # How to display the link to your website in the footer
 # Remove this if you don't want a link in the footer
-url-pretty: "MyWebsite.com"
+url-pretty: "andreabragantini.carrds.co"
 
 # Add the website title to the title of every page
 title-on-all-pages: true
@@ -250,7 +250,7 @@ footer-hover-col: "#0085A1"
 ################
 
 # Ruby Date Format to show dates of posts
-date_format: "%B %-d, %Y"
+date_format: "%-d %B, %Y"
 
 # Facebook App ID
 #fb_app_id: ""

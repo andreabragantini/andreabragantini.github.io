@@ -24,7 +24,7 @@ navbar-links:
   About Me: "aboutme"
   Scientific Publications: "publications"
   Conferences: "conferences"
-  Other personal sites: "https://andreabragantini.carrds.co/"
+  Personal sites: "https://andreabragantini.carrds.co/"
   Contact: "contact"
   #Resources:
   #  - Beautiful Jekyll: "https://beautifuljekyll.com"
@@ -64,7 +64,7 @@ social-network-links:
   whatsapp: +393479862443
   medium: "@andrea.bragantini"
 #  reddit: yourname or r/yoursubreddit
-  linkedin: andreabragantini
+  linkedin: andrea-bragantini
 #  xing: yourname
 #  stackoverflow: "3943160/daattali"
 #  snapchat: deanat78

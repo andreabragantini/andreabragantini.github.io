@@ -1,6 +1,6 @@
 ---
 layout: post  
-title: Streamlit App for Visualizing Extensive Data  
+title: Streamlit App for Visualizing Wind Turbine Data  
 subtitle: Interactive Data Exploration with Streamlit  
 gh-repo: andreabragantini/streamlit_v52data  
 gh-badge: [star, fork, follow]  

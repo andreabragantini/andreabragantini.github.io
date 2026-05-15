@@ -2,7 +2,7 @@
 layout: post  
 title: Streamlit App for Visualizing Extensive Data  
 subtitle: Interactive Data Exploration with Streamlit  
-gh-repo: yourusername/streamlit_v52data  
+gh-repo: andreabragantini/streamlit_v52data  
 gh-badge: [star, fork, follow]  
 tags: [Streamlit, Data Visualization, Python]  
 comments: true  
@@ -19,4 +19,11 @@ The core of the application is a dataset named `V52_ExtensiveData.csv`, which co
 
 This project demonstrates the power of **Streamlit** for rapid prototyping and deployment of data-driven applications. Whether you're a data enthusiast or a professional analyst, this app provides a seamless way to dive into your data.  
 
-Feel free to explore the code and contribute to the project on [GitHub](https://github.com/yourusername/streamlit_v52data).  
+Feel free to explore the code and contribute to the project on [GitHub](https://github.com/andreabragantini/streamlit_v52data).  
+
+### Hosted Application
+This application is hosted on GitHub and deployed via Streamlit Community Cloud. You can access it here: [appv52data](https://appv52data.streamlit.app/).
+
+**Notes:**
+- The app may enter a sleep state after periods of inactivity and could take a few moments to wake up when first accessed.
+- If you’re running on Streamlit Community Cloud, the `secrets.toml` file is ignored. You must add secrets in the app’s **Settings → Secrets** on Streamlit.

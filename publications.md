@@ -99,8 +99,8 @@ subtitle: Paper works published in peer-reviewed Journals
 
 <div class="research-page">
   <div class="note">
-    A compact list of selected journal papers written in plain language, with direct links to the official repository page and DOI when available.
-    The newest journal paper is included here even if it has not fully propagated to Google Scholar yet.
+    A compact list of my selected journal papers published in open-science, with direct links to the official repository page and DOI when available.
+	A brief summary is added for a non-technical audience to better understand the topic and the contents.
   </div>
 
   <div class="section-label">Journal articles</div>

@@ -123,7 +123,7 @@ subtitle: Paper works published in peer-reviewed Journals
       <span class="badge badge-info">Neural networks</span>
     </div>
     <div class="paper-links">
-      <a class="btn btn-primary" href="https://doi.org/10.1016/j.segan.2026.102327" target="_blank" rel="noopener noreferrer">Paper page</a>
+      <a class="btn btn-outline-primary" href="https://doi.org/10.1016/j.segan.2026.102327" target="_blank" rel="noopener noreferrer">DOI</a>
     </div>
   </article>
 

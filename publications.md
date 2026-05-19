@@ -114,8 +114,8 @@ subtitle: Paper works published in peer-reviewed Journals
       <span class="badge badge-success">Latest journal paper</span>
     </div>
     <p class="paper-summary">
-      This paper shows how a neural network can help understand what is happening inside low-voltage electrical grids even when only a small amount of measurement data is available.
-      In simple terms, it is about making the grid more visible and easier to monitor without requiring a huge number of sensors everywhere.
+      This paper shows how artificial intelligence can help make low-voltage grids easier to understand even when the network has only a limited number of sensors.
+      It focuses on a practical three-phase estimator that can detect voltage changes and improve visibility in unobserved parts of the grid.
     </p>
     <div class="paper-tags">
       <span class="badge badge-primary">Open access</span>
@@ -148,6 +148,30 @@ subtitle: Paper works published in peer-reviewed Journals
     <div class="paper-links">
       <a class="btn btn-primary" href="https://upcommons.upc.edu/entities/publication/7a94fd93-7dee-4d86-b623-5c4997e1c3de" target="_blank" rel="noopener noreferrer">Repository</a>
       <a class="btn btn-outline-primary" href="https://doi.org/10.1109/ACCESS.2024.3366337" target="_blank" rel="noopener noreferrer">DOI</a>
+    </div>
+  </article>
+
+  <div class="section-label mt-4">PhD thesis</div>
+
+  <article class="paper-card">
+    <div class="paper-header">
+      <div>
+        <h2 class="paper-title">Learning-based state estimation for low voltage distribution grids using neural networks</h2>
+        <p class="paper-meta">PhD thesis, Universitat Polit&egrave;cnica de Catalunya, 2026</p>
+      </div>
+      <span class="badge badge-success">Doctoral thesis</span>
+    </div>
+    <p class="paper-summary">
+      This thesis explores how neural networks can be used to estimate and monitor the state of low-voltage distribution grids when the available measurement infrastructure is limited.
+      In practical terms, it studies how to make the grid easier to observe, more reliable, and more useful for real operational decisions.
+    </p>
+    <div class="paper-tags">
+      <span class="badge badge-primary">Doctoral thesis</span>
+      <span class="badge badge-secondary">Low-voltage grids</span>
+      <span class="badge badge-info">AI for grid monitoring</span>
+    </div>
+    <div class="paper-links">
+      <a class="btn btn-primary" href="https://upcommons.upc.edu/entities/publication/fdc256db-ac07-44f9-a081-5246ff6edb3d" target="_blank" rel="noopener noreferrer">Repository</a>
     </div>
   </article>
 </div>

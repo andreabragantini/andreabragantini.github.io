@@ -24,7 +24,7 @@ navbar-links:
   About Me: "aboutme"
   Scientific Publications: "publications"
   Conferences: "conferences"
-  Personal sites: "https://andreabragantini.carrds.co/"
+  Personal sites: "personal-sites"
   Contact: "contact"
   #Resources:
   #  - Beautiful Jekyll: "https://beautifuljekyll.com"
@@ -106,7 +106,7 @@ share-links-active:
 
 # How to display the link to your website in the footer
 # Remove this if you don't want a link in the footer
-url-pretty: "andreabragantini.carrds.co"
+url-pretty: "andreabragantini.github.io"
 
 # Add the website title to the title of every page
 title-on-all-pages: true
@@ -306,4 +306,3 @@ plugins:
 
 # Beautiful Jekyll / Dean Attali
 # 2fc73a3a967e97599c9763d05e564189
-

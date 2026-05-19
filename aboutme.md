@@ -97,10 +97,7 @@ Throughout my research, I have made significant scientific contributions to the 
 
 <div class="about-image-pair">
   <figure>
-    <img class="tall-left" src="{{ '/assets/img/personal_picture_1.jpg' | relative_url }}" alt="Andrea Bragantini portrait">
-  </figure>
-  <figure>
-    <img class="tall-right" src="{{ '/assets/img/personal_picture_2.jpg' | relative_url }}" alt="Andrea Bragantini seated portrait">
+    <img class="tall-center" src="{{ '/assets/img/personal_picture_1.jpg' | relative_url }}" alt="Andrea Bragantini portrait">
   </figure>
 </div>
 
@@ -121,6 +118,12 @@ Beyond my professional life, I have maintained a high personal standard through 
 My journey began at Politecnico di Milano, where I earned two separate Master’s degrees: one in Energy Engineering and another in Management Engineering. This distinctive dual path for selected students was designed to train a new generation of professionals capable of seamlessly blending technical and managerial skills, a profile increasingly needed in today’s interconnected industrial and economic context. It provided me with a strong foundation in energy technologies, thermodynamics, energy conversion, and electrical systems, while also exposing me to economics, finance, project management, and business strategy.
 
 During my studies, I pursued a series of international experiences that reflect a consistent theme of innovation and global exposure. At ETH Zurich, I developed my Master’s thesis on optimization and control tools for smart grids. I also worked as an R&D Engineer at Siemens Gamesa, one of the world’s largest wind-turbine manufacturers, where I gained hands-on experience in big industrial projects and renewable energy technologies. After graduation, I joined RWTH Aachen University as a research assistant, deepening my expertise in data-driven engineering and artificial intelligence, paving the way for a doctoral research plan and a future career in research. These experiences strengthened my global career orientation, reinforcing both my technical expertise and my ability to adapt and thrive in multicultural environments.
+
+<div class="about-inline-photo">
+  <figure>
+    <img src="{{ '/assets/img/personal_picture_2.jpg' | relative_url }}" alt="Andrea Bragantini seated portrait">
+  </figure>
+</div>
 
 Since 2021, I have been pursuing my Ph.D. at UPC in Barcelona, exploring the intersection between data science and power systems. I focus on developing AI-based models to enhance the observability, reliability of electrical networks. This work allows me to merge rigorous engineering principles with digital innovation, always aiming for practical applications and tangible impact.
 

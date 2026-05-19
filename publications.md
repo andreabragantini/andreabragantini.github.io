@@ -100,7 +100,7 @@ subtitle: Paper works published in peer-reviewed Journals
 <div class="research-page">
   <div class="note">
     A compact list of my selected journal papers published in open-science, with direct links to the official repository page and DOI when available.
-	A brief summary is added for a non-technical audience to better understand the topic and the contents.
+    A brief summary is added for a non-technical audience to better understand the topic and the contents.
   </div>
 
   <div class="section-label">Journal articles</div>
@@ -108,10 +108,32 @@ subtitle: Paper works published in peer-reviewed Journals
   <article class="paper-card">
     <div class="paper-header">
       <div>
+        <h2 class="paper-title">Impact of bad and partial input data on neural network-based low voltage state estimation</h2>
+        <p class="paper-meta">Sustainable Energy, Grids and Networks, 2026, Article 102327</p>
+      </div>
+      <span class="badge badge-success">Latest journal paper</span>
+    </div>
+    <p class="paper-summary">
+      This paper studies what happens when the input data used to estimate the state of a low-voltage grid is incomplete or partly wrong.
+      It explains how neural-network-based methods behave in these imperfect conditions and why that matters for making grid monitoring more reliable in real life.
+    </p>
+    <div class="paper-tags">
+      <span class="badge badge-primary">Low-voltage grids</span>
+      <span class="badge badge-secondary">Imperfect data</span>
+      <span class="badge badge-info">Neural networks</span>
+    </div>
+    <div class="paper-links">
+      <a class="btn btn-primary" href="https://doi.org/10.1016/j.segan.2026.102327" target="_blank" rel="noopener noreferrer">Paper page</a>
+    </div>
+  </article>
+
+  <article class="paper-card">
+    <div class="paper-header">
+      <div>
         <h2 class="paper-title">Neural network-based three-phase state estimation for unobservable low voltage grids</h2>
         <p class="paper-meta">International Journal of Electrical Power &amp; Energy Systems, Vol. 167, Article 110568, 2025</p>
       </div>
-      <span class="badge badge-success">Latest journal paper</span>
+      <span class="badge badge-success">Journal article</span>
     </div>
     <p class="paper-summary">
       This paper shows how artificial intelligence can help make low-voltage grids easier to understand even when the network has only a limited number of sensors.

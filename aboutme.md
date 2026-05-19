@@ -95,9 +95,10 @@ I have spent probably too much time in academia (BSc+MSc1+MSc2+PhD), building a 
 
 Throughout my research, I have made significant scientific contributions to the fields of smart grids and artificial intelligence, with several peer-reviewed publications in top-tier scientific journals. 
 
-<div class="about-image-pair">
-  <figure>
-    <img class="tall-center" src="{{ '/assets/img/personal_picture_1.jpg' | relative_url }}" alt="Andrea Bragantini portrait">
+
+<div class="about-image-pair" style="justify-content: center;">
+  <figure style="margin: 0 auto; display: flex; justify-content: center;">
+    <img class="tall-center" style="margin: 0 auto; display: block;" src="{{ '/assets/img/personal_picture_1.jpg' | relative_url }}" alt="Andrea Bragantini portrait">
   </figure>
 </div>
 
@@ -119,7 +120,8 @@ My journey began at Politecnico di Milano, where I earned two separate Master’
 
 During my studies, I pursued a series of international experiences that reflect a consistent theme of innovation and global exposure. At ETH Zurich, I developed my Master’s thesis on optimization and control tools for smart grids. I also worked as an R&D Engineer at Siemens Gamesa, one of the world’s largest wind-turbine manufacturers, where I gained hands-on experience in big industrial projects and renewable energy technologies. After graduation, I joined RWTH Aachen University as a research assistant, deepening my expertise in data-driven engineering and artificial intelligence, paving the way for a doctoral research plan and a future career in research. These experiences strengthened my global career orientation, reinforcing both my technical expertise and my ability to adapt and thrive in multicultural environments.
 
-<div class="about-inline-photo">
+
+<div class="about-inline-photo" style="float: left; margin-right: 1.2rem; margin-left: 0;">
   <figure>
     <img src="{{ '/assets/img/personal_picture_2.jpg' | relative_url }}" alt="Andrea Bragantini seated portrait">
   </figure>

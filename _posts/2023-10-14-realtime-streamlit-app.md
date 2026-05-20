@@ -2,7 +2,7 @@
 layout: post
 title: Real-Time Weather Dashboard
 subtitle: A Streamlit application for real-time weather visualization
-cover-img: /assets/img/weather-app-screen.png
+cover-img: /assets/img/weather-forecasts-app-background.jpg
 thumbnail-img: /assets/img/streamlit-thumbpng.png
 share-img: /assets/img/weather-app-screen.png  
 gh-repo: andreabragantini/streamlit_weather_realtime

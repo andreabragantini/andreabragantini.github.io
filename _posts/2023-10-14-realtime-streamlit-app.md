@@ -2,6 +2,9 @@
 layout: post
 title: Real-Time Weather Dashboard
 subtitle: A Streamlit application for real-time weather visualization
+cover-img: /assets/img/weather-app-screen.png
+thumbnail-img: /assets/img/streamlit-thumbpng.png
+share-img: /assets/img/weather-app-screen.png  
 gh-repo: andreabragantini/streamlit_weather_realtime
 gh-badge: [star, fork, follow]
 tags: [Python, Streamlit, Weather API, Data Visualization]

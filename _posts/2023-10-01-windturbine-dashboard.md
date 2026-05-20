@@ -1,7 +1,10 @@
 ---
 layout: post  
 title: Streamlit App for Visualizing Wind Turbine Data  
-subtitle: Interactive Data Exploration with Streamlit  
+subtitle: Interactive Data Exploration with Streamlit
+cover-img: /assets/img/v52turbine.jpg
+thumbnail-img: /assets/img/v52turbine_3.jpg
+share-img: /assets/img/v52turbine.jpg  
 gh-repo: andreabragantini/streamlit_v52data  
 gh-badge: [star, fork, follow]  
 tags: [Streamlit, Data Visualization, Python]  

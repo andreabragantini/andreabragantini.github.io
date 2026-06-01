@@ -4,6 +4,7 @@ title: Power Grid OPF With Gurobi
 subtitle: From thesis prototype to a modular OPF research codebase
 thumbnail-img: /assets/img/gurobi_thumb.png
 share-img: /assets/img/gurobi_thumb.png 
+cover-img: /assets/img/power_grid.jpeg
 gh-repo: andreabragantini/power-grid-opf-gurobi
 gh-badge: [star, fork, follow]
 tags: [Power Systems, Optimization, OPF, Gurobi, Python]

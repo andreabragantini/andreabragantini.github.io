@@ -11,8 +11,6 @@ tags: [Optimization, Python, Gurobi, Operations Research, Linear Programming]
 comments: true
 ---
 
-## Project Overview
-
 This project studies the Optimal Gas Dispatch (OGD) problem for natural gas transmission and distribution networks. The goal is to decide how gas should be injected, routed, and distributed through a network while respecting physical limits and minimizing operating cost.
 
 I started this work to better understand how gas network optimization is modeled in practice, and to turn a thesis-style prototype into a cleaner and more modular Python codebase. The focus was not only on solving the problem, but also on making the implementation easier to test, extend, and present as a research project.

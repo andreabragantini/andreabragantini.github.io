@@ -12,8 +12,6 @@ comments: true
 ---
 
 
-## Project Overview
-
 This project focuses on Optimal Power Flow (OPF) for electrical transmission networks, implemented in Python with Gurobi. The goal is to compute economically efficient generation dispatch while respecting network constraints such as line limits, power balance, and operating bounds.
 
 I started this work as an academic prototype and progressively refactored it into a formulation-driven codebase that is easier to maintain, extend, and benchmark. Beyond solving OPF instances, the project emphasizes reproducibility, clean architecture, and structured result reporting for research and portfolio use.

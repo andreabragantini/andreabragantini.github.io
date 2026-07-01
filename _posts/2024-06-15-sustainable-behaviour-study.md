@@ -41,5 +41,6 @@ The main result is that the two targets share a very similar set of top-ranked f
 The current analysis therefore suggests that water-saving care and energy-saving care are strongly related to a common behavioural profile.
 The final conclusion is that attention to saving water and energy does not behave like an isolated outcome. Instead, it appears to be embedded in a broader pattern involving sustainable consumption, everyday habits, and some socio-demographic variables.
 
+### Repository
 Check out the [GitHub repository](https://github.com/andreabragantini/sustainable_behaviours_study) for more details and to contribute to the project!
 	

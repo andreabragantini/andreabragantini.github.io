@@ -68,4 +68,6 @@ The main lesson from this study is simple: issue resolution time is not random, 
 
 A clean preprocessing pipeline, a careful choice of features, and a mix of linear and tree-based models give a much clearer picture of the problem. The best model is not only the one with the best score, but also the one that behaves sensibly on real, messy issues.
 
+### Repository
+
 Check out the [GitHub repository](https://github.com/andreabragantini/AVRO-case) for more details and to contribute to the project!

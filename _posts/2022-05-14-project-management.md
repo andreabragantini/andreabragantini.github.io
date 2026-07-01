@@ -17,15 +17,15 @@ The analysis is structured at two levels:
 
 ### Selected Figures
 
-![Portfolio Evaluation](assets/img/project_portfolio_evaluation.png)
+![Portfolio Evaluation](../assets/img/project_portfolio_evaluation.png)
 
 The portfolio evaluation chart maps projects by Risk and Strategic Alignment, with bubble size/color representing Profitability. It helps frame practical trade-offs instead of relying on a single ranking metric.
 
-![Aggregated Cash Flow](assets/img/cash_flows_Aggregated_Cash_Flow.png)
+![Aggregated Cash Flow](../assets/img/cash_flows_Aggregated_Cash_Flow.png)
 
 The aggregated monthly cash-flow profile highlights portfolio drawdown windows and recovery phases. Diversification helps smooth some volatility, but timing risk remains visible.
 
-![Aggregated Cash Balance](assets/img/cash_flows_Aggregated_Cash_Balance.png)
+![Aggregated Cash Balance](../assets/img/cash_flows_Aggregated_Cash_Balance.png)
 
 The cash-balance trend shows how liquidity evolves over time and why treasury planning is critical when large project outflows cluster in the same periods.
 

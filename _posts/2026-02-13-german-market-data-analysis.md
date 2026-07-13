@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "Analyzing the German 2025 Power Market"
-subtitle: "An in-depth look at electricity demand and day-ahead prices in Germany (2025), exploring data cleaning, seasonal patterns, and market dynamics."
-date: 2026-07-13
-categories: [data-science, energy-markets]
+title: Analyzing the German 2025 Power Market
+subtitle: An in-depth look at electricity demand and day-ahead prices in Germany (2025), exploring data cleaning, seasonal patterns, and market dynamics.
 tags: [python, pandas, data-analysis, time-series, power-market]
-gh-repo: andreabragantini/prezzi-case
+gh-repo: andreabragantini/power-market-data-analysis
 gh-badge: [star, fork, follow]
-cover_image: "/assets/images/blog/power_market_analysis.jpg"
+thumbnail-img: /assets/img/power-market-icon.png
+share-img: /assets/img/power-market-icon.png 
+cover_image: /assets/img/power-markets-landscape.jpg
 comments: true
 ---
 
@@ -316,3 +316,8 @@ The 15-minute price market mechanism, introduced across Germany on October 1st, 
 ---
 
 *This report was produced as part of a data analysis portfolio project. All findings are derived from the provided datasets using the `power_market_analysis` Python package available in the project repository.*
+
+## 7. Repository
+
+Full code, case study data, and detailed documentation available on GitHub.
+Check out the [GitHub repository](https://github.com/andreabragantini/power-market-data-analysis) for more details and to contribute to the project!

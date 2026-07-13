@@ -1,6 +1,6 @@
 ---
-layout: post
-title: Power Grid OPF With Gurobi
+layout: post	
+title: Power Grid Optimization With Gurobi
 subtitle: From thesis prototype to a modular OPF research codebase
 thumbnail-img: /assets/img/gurobi_thumb.png
 share-img: /assets/img/gurobi_thumb.png 

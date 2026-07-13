@@ -5,9 +5,9 @@ subtitle: An in-depth look at electricity demand and day-ahead prices in Germany
 tags: [python, pandas, data-analysis, time-series, power-market]
 gh-repo: andreabragantini/power-market-data-analysis
 gh-badge: [star, fork, follow]
-thumbnail-img: /assets/img/power-market-icon.png
-share-img: /assets/img/power-market-icon.png 
-cover_image: /assets/img/power-markets-landscape.jpg
+thumbnail-img: /assets/img/power-market-icon.jpg`
+share-img: /assets/img/power-market-icon.jpg
+cover_img: /assets/img/power-markets-landscape.jpg
 comments: true
 ---
 

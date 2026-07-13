@@ -89,11 +89,11 @@ After all three steps: **0 NaN values remaining**.
 
 The logic is data-driven and grounded in the periodic nature of electricity consumption: demand at 08:00 on a Tuesday is very similar to demand at 08:00 on the previous Tuesday, especially for the same quarter-hour slot.
 
-![Cleaned Demand Time Series](../results/demand/demand_cleaned.png)
+![Cleaned Demand Time Series](../assets/img/market_data_proj/results/demand/demand_cleaned.png)
 
 *The cleaned and fully imputed demand timeseries for Germany 2025.*
 
-![Demand Distribution](../results/demand/demand_distribution.png)
+![Demand Distribution](../assets/img/market_data_proj/results/demand/demand_distribution.png)
 
 *Distribution of demand values after cleaning. The histogram and boxplot confirm the absence of extreme outliers in the cleaned data.*
 
@@ -130,7 +130,7 @@ Hourly-resampled average:     89.32 EUR/MWh  ← CORRECT
 
 **Yearly Average Day-Ahead Price: 89.32 EUR/MWh**
 
-![Hourly Day-Ahead Price](../results/price/hourly_power_price.png)
+![Hourly Day-Ahead Price](../assets/img/market_data_proj/results/price/hourly_power_price.png)
 
 *Hourly day-ahead price for Germany 2025. The red dashed line shows the yearly average (89.32 EUR/MWh). The gray dashed line marks 0 EUR/MWh, which is periodically crossed by negative price spikes — a structural feature of power markets with high renewable penetration.*
 
@@ -156,19 +156,19 @@ MSTL (*Multiple Seasonal-Trend decomposition using LOESS*) was applied to decomp
 - **Seasonal Weekly**: The Monday–Sunday cycle
 - **Residual**: Irregular shocks and unexplained variation
 
-![MSTL Decomposition](../results/demand/mstl_decomposition.png)
+![MSTL Decomposition](../assets/img/market_data_proj/results/demand/mstl_decomposition.png)
 
 *MSTL decomposition of the demand timeseries into its structural components. The trend shows a clear winter–summer–winter shape. The daily seasonality captures the morning ramp-up and evening ramp-down. The weekly seasonality separates weekdays from weekends.*
 
 #### Intraday Demand Profile
 
-![Intraday Demand Profile](../results/demand/intra_day_profile.png)
+![Intraday Demand Profile](../assets/img/market_data_proj/results/demand/intra_day_profile.png)
 
 *Average 24-hour demand profile across all of 2025. The morning ramp (06:00–09:00) and evening plateau (17:00–21:00) are the characteristic double-peak structure of European residential and industrial demand.*
 
 #### Weekly Demand Profile
 
-![Weekly Demand Profile](../results/demand/intra_day_profile_by_weekday.png)
+![Weekly Demand Profile](../assets/img/market_data_proj/results/demand/intra_day_profile_by_weekday.png)
 
 *Intraday demand profiles by day of the week. Monday through Friday show similar high-demand profiles. Saturday is intermediate, and Sunday is the lowest, reflecting the cessation of most industrial activity.*
 
@@ -181,7 +181,7 @@ The following four metrics are compared across all 12 months:
 - **Base Load (MWh/h)**: Minimum instantaneous demand (typically overnight in summer).
 - **Demand Volatility (std of MWh/h)**: Standard deviation, capturing how much demand fluctuates within the month.
 
-![Monthly Profiles](../results/demand/monthly_profiles.png)
+![Monthly Profiles](../assets/img/market_data_proj/results/demand/monthly_profiles.png)
 
 *Four-panel comparison of monthly demand characteristics. Key observations:*
 
@@ -201,7 +201,7 @@ The following four metrics are compared across all 12 months:
 
 Total daily demand varies considerably across the year. The dual-axis plot below shows how the daily price tracks (imperfectly) with the daily demand total:
 
-![Daily Price vs Demand](../results/price/daily_price_vs_demand.png)
+![Daily Price vs Demand](../assets/img/market_data_proj/results/price/daily_price_vs_demand.png)
 
 *Dual-axis comparison of daily average price (orange) and total daily demand (blue). Both series exhibit similar seasonal patterns — higher in winter, lower in summer — though the relationship is noisy at the daily level.*
 
@@ -214,7 +214,7 @@ The intraday price profile reveals a characteristic **double-peak structure** dr
 - **Evening peak (17:00–20:00)**: The highest prices of the day, when demand remains elevated but solar drops off.
 - **Night valley (00:00–06:00)**: Minimum prices, when demand is low and base-load plants must continue generating.
 
-![Intraday Price Profile](../results/price/intra_day_profile.png)
+![Intraday Price Profile](../assets/img/market_data_proj/results/price/intra_day_profile.png)
 
 *Average day-ahead price by hour of the day across all of 2025. The evening price peak (around 18:00–19:00) and the overnight minimum are clearly visible.*
 
@@ -222,7 +222,7 @@ The intraday price profile reveals a characteristic **double-peak structure** dr
 
 The summer/winter split reveals structurally different price dynamics:
 
-![Price by Season](../results/price/intra_day_profile_by_season.png)
+![Price by Season](../assets/img/market_data_proj/results/price/intra_day_profile_by_season.png)
 
 *Comparison of hourly price profiles between Winter (October–March) and Summer (April–September).*
 
@@ -237,7 +237,7 @@ The summer/winter split reveals structurally different price dynamics:
 
 ### 4.4 Weekday Price Profiles
 
-![Price by Weekday](../results/price/intra_day_profile_by_weekday.png)
+![Price by Weekday](../assets/img/market_data_proj/results/price/intra_day_profile_by_weekday.png)
 
 *Hourly price profiles by day of the week. Weekday prices are uniformly higher during business hours due to industrial load. Weekend prices are noticeably lower, particularly on Sunday.*
 
@@ -262,7 +262,7 @@ The Pearson coefficient of 0.62 is strong, but it is largely driven by the **sha
 
 By subtracting a **30-day rolling mean** from both series, we isolate the short-term anomalies — "higher than usual for this time of year." The detrended correlation of **0.46** is meaningful and positive: on days when demand is unexpectedly high (e.g., a cold snap in spring), prices tend to be higher than typical for that period. This confirms a **genuine but moderate** market-clearing relationship.
 
-![Hourly Scatter Plot](../results/price/price_vs_demand_scatter_hourly.png)
+![Hourly Scatter Plot](../assets/img/market_data_proj/results/price/price_vs_demand_scatter_hourly.png)
 
 *Scatter plot of hourly price vs. demand across all of 2025. The wide spread reflects the many other drivers of price (renewable generation, cross-border flows, fuel costs) beyond demand alone.*
 
@@ -270,11 +270,11 @@ By subtracting a **30-day rolling mean** from both series, we isolate the short-
 
 The switch to 15-minute pricing on October 1st, 2025 is one of the most structurally important events in the dataset. Comparing scatter plots before and after this date reveals:
 
-![Scatter Before Oct 1](../results/price/price_vs_demand_scatter_before0110.png)
+![Scatter Before Oct 1](../assets/img/market_data_proj/results/price/price_vs_demand_scatter_before0110.png)
 
 *Before October 1st — Hourly prices. Note the presence of strongly negative prices at low demand levels (overnight/weekend solar surplus), and extreme positive spikes.*
 
-![Scatter After Oct 1](../results/price/price_vs_demand_scatter_after0110.png)
+![Scatter After Oct 1](../assets/img/market_data_proj/results/price/price_vs_demand_scatter_after0110.png)
 
 *After October 1st — Quarter-hourly prices. The distribution is notably tighter: negative price spikes are reduced and extreme positive spikes are mitigated.*
 

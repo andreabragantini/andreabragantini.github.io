@@ -21,7 +21,8 @@ few personal sites, plus a blog-style feed of project write-ups.
 
 ## Running the site locally (Docker — recommended, no Ruby needed)
 
-You do **not** need to install Ruby. The site runs inside a Docker container using
+
+To test locally and for local development, you do **not** need to install Ruby. The site can run inside a Docker container using
 the official `jekyll/jekyll` image.
 
 ### Prerequisites
@@ -43,7 +44,7 @@ docker rm -f jekyll-local
 ```
 
 Every time you edit a file, Jekyll regenerates the site automatically — just
-refresh the browser.
+refresh the browser. This way you can check locally your edits before pushing.
 
 ### What the launch command does (explained)
 
@@ -132,6 +133,3 @@ For a personal site they are not needed:
   if you prefer.
 - `staticman.yml` — only relevant if you enable Staticman comments (currently not
   enabled in `_config.yml`). Safe to delete if you don't use comments.
-
-The files `Appraisals` and `CHANGELOG.md` (theme changelog / test config) have
-already been removed from this repository as they are not used by the site.

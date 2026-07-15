@@ -5,18 +5,23 @@ REM Double-click this file (or run it from the repo root). It starts a Jekyll
 REM server at http://localhost:4000 and watches for file changes.
 REM
 REM Requires: Docker Desktop running.
-REM Stop the site later with:  docker rm -f jekyll-local
+REM
+REM You can also Stop/Pause the container from the Docker Desktop UI and
+REM restart it later with the Start/Resume button - it stays in the list.
+REM This script reuses the existing container when one already exists.
 REM ---------------------------------------------------------------------------
 cd /d "%~dp0"
-
-REM Make sure any previous instance is removed
-docker rm -f jekyll-local >nul 2>&1
-
-REM Convert Windows backslash path to forward slashes for Docker
 set "REPO=%cd:\=/%"
 
-docker run -d --name jekyll-local -p 4000:4000 -v "%REPO%:/srv/jekyll" -w /srv/jekyll --entrypoint sh jekyll/jekyll:latest /srv/jekyll/start.sh
+docker inspect -f "{{.State.Status}}" jekyll-local >nul 2>&1
+if %errorlevel%==0 goto STARTEXISTING
 
-echo.
-echo Site is starting... open http://localhost:4000
-echo (first build takes ~30s; stop with: docker rm -f jekyll-local)
+echo No container found - creating a new one...
+docker run -d --name jekyll-local -p 4000:4000 -v "%REPO%:/srv/jekyll" -w /srv/jekyll --entrypoint sh jekyll/jekyll:latest /srv/jekyll/start.sh
+echo Started. Open http://localhost:4000 (first build ~30-60s)
+goto :eof
+
+:STARTEXISTING
+echo Container already exists - starting it (or leaving it running)...
+docker start jekyll-local >nul 2>&1
+echo Ready. Open http://localhost:4000

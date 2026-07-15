@@ -1,0 +1,5 @@
+# Local-only override: tells Jekyll to generate internal links with
+# http://localhost:4000 so they work in the browser, while the server
+# still listens on 0.0.0.0 inside the Docker container.
+# This file is NOT used by GitHub Pages.
+url: "http://localhost:4000"

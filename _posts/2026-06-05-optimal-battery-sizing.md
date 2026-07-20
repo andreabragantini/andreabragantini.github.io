@@ -9,6 +9,8 @@ thumbnail-img: /../assets/img/bess_plant.png
 share-img: /../assets/img/bess_plant.png
 cover-img: /../assets/img/bess_plant_large.jpg
 comments: true
+mathjax: true
+mermaid: true
 ---
 
 # Introduction
@@ -127,9 +129,14 @@ These findings are exactly why the project uses a staged workflow. Quantile-base
 
 ![Chronological dispatch validation](../assets/img/optimal_battery_sizing/02_optimization_results/full_year_dispatch.png)
 
-The project also includes ready-to-share dispatch visuals from example runs:
+The project also includes single-day case studies with mock data to show how the proposed models works:
 
+Battery operations on a 24h horizon for the optimally found battery design:
 ![Optimized dispatch example](../assets/img/optimal_battery_sizing/demo/dispatch_plot_opt.png)
+
+Battery operations on a 24h horizon for the selected battery design:
+![Simulation dispatch example](../assets/img/optimal_battery_sizing/demo/dispatch_plot_sim.png)
+
 
 # Lessons Learned
 

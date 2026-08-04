@@ -1,9 +1,11 @@
 ---
 layout: post
 title: Test post
-subtitle: Modello di regressione lineare applicato al mercato di Milano
-gh-repo: andreabragantini/prezzi-case
+subtitle: brief text
+gh-repo: andreabragantini/reponame
 gh-badge: [star, fork, follow]
 tags: [Machine Learning, Python, Scikit-learn]
 comments: true
 ---
+
+text here

@@ -11,63 +11,139 @@ tags: [Data Science, Python, Machine Learning]
 comments: true
 ---
 
-How long will an issue stay open? That was the main question behind this study.
+This project is one of my first efforts in the Data Science sphere and I think is worth to share becuase it deals with real-world industry dataset, using the public issue tracker of **Apache Avro**, an open-source data serialisation framework popular in big-data systems.
+This document can be used by newcomers in the world of Data Science (DS) to better understand a full machine learning project from bottoms to the top, and also by DS practitioners to read something about an interesting problem of survival analysis with real data, not belonging to the traditional MedTech or HealthCare world.
 
-The dataset comes from the AVRO issue tracker and contains 1,458 issues. The goal was to predict the time needed to close an issue using only the information that is available while the issue is still open. That means the model must learn from the issue details, not from the answer itself.
+## The Question
 
-### Context
+When a developer opens a bug report or feature request, one of the most practical questions is: *how long will this take to fix?* This project tackles exactly that — 
 
-This kind of problem is practical because project teams often want a quick estimate of how long a new issue may stay open. A short estimate helps with planning, prioritization, and communication. A long estimate is also useful, because it can highlight issues that may need more attention.
+The goal is to build models that can predict **resolution time** using only the information available when a ticket is opened: its type, priority, reporter, a few structural properties extracted from the description, and metadata from the JIRA export.
 
-### Data and preparation
+---
 
-Not every row can be used to train the model. Only issues with a known `created` date and `resolutiondate` can give a real resolution time.
+## The Data
 
-After cleaning the data:
+The dataset is a snapshot of **1,458 issues** from the Apache Avro JIRA tracker. Not all of them can be used directly for supervised learning: only the **1,134 issues that have already been resolved** give us a ground truth (a real closing time). The remaining **324 still-open issues** have no label and are treated as a *forecasting pilot* — a qualitative check on realistic cases.
 
-- 1,134 issues were used for training.
-- 324 issues were kept for validation.
-- The target variable was the time between creation and resolution.
+![Resolution time distribution](../assets/img/avro_issues/histogram.png)
 
-Some fields were removed because they would leak the answer or are not available for a future issue. I removed `status`, `resolution`, `assignee`, and the date fields used to compute the target.
+The distribution of resolution times tells the whole story immediately: most issues close in a handful of days, but a few linger for months or even years. The longest one in the dataset took nearly **952 days**. This extreme right skew is the single biggest challenge of the project.
 
-I also simplified the categorical variables:
+---
 
-- Rare reporters were grouped into `Other`.
-- `issue_type` was reduced to two groups: `Short` and `Long`.
-- Numeric variables with strong skew were transformed with a log scale.
+## Pipeline Overview
 
-### What I found
+The project is structured as a step-by-step Python pipeline, each stage written as a self-contained script.
 
-The first clear result is that the target is very uneven. Most issues are solved quickly, but a small number stay open for months or even years. Those long cases are important because they pull the prediction problem away from the average case.
+```mermaid
+flowchart LR
+    A[Raw CSV + JSON] --> B[0 - Merge datasets]
+    B --> C[1 - Exploratory analysis]
+    C --> D[2 - Preprocessing & split]
+    D --> E[3 - Bivariate analysis & log-transform]
+    E --> F[4 - One-hot encoding]
+    F --> G[5 - Feature selection]
+    G --> H[6 - Linear regression]
+    G --> I[7 - Decision tree & Random forest]
+    G --> J[8 - Cox PH & Random survival forest]
+    H & I & J --> K[9 - Forecasting pilot]
+    H & I & J --> L[10 - Model comparison]
+```
 
-The features that helped the most were:
+A single `run_analysis.py` runner executes everything in sequence, but each script can also be run independently since all fitted models are persisted to disk.
 
-- `comment_count`
-- `watch_count`
-- `vote_count`
-- `issue_type`
-- a few frequent reporters
+---
 
-This makes sense. Issues that attract more comments, votes, and watchers often have more activity around them, and that activity can be related to longer or more complex resolution paths.
+## Key Engineering Choices
 
-The linear regression model was useful as a baseline and as an explanation tool. In the saved OLS summary, it reached an R-squared of about 0.336, so it captured part of the signal but not all of it. The tree-based models handled the extreme cases better. A single decision tree overfit easily, while the random forest was more stable.
+### Taming the skew with a log-transform
 
-### Exercise answers
+Training models directly on resolution times in days would let the few year-long issues dominate the loss function, making predictions useless for the vast majority of tickets. The fix is to train on **log(minutes)** and exponentiate the predictions back to days. This is a standard practice for heavy-tailed targets, and it makes the residuals much better-behaved.
 
-The exercise can be summarized in a few practical answers:
+![Log-transformed duration](bivariate_analysis/duration_log.png)
 
-1. Train only on issues that already have a known resolution date.
-2. Remove features that would not be available for a new issue.
-3. Keep the features that describe the issue itself and the community reaction around it.
-4. Use a simple linear model for interpretation, then compare it with tree-based models for better prediction on difficult cases.
+### Avoiding data leakage
 
-### Final thought
+Several columns look predictive but cannot be used in practice:
 
-The main lesson from this study is simple: issue resolution time is not random, but it is also not easy to predict with a straight line.
+- `status` and `resolution` — a new issue has never been closed yet, so their values in the training set would be pure leakage.
+- `vote_count`, `comment_count`, `watch_count` — these grow *with* the age of an issue. Using them to predict duration is circular.
+- `assignee` — usually unknown at creation time for unresolved issues.
 
-A clean preprocessing pipeline, a careful choice of features, and a mix of linear and tree-based models give a much clearer picture of the problem. The best model is not only the one with the best score, but also the one that behaves sensibly on real, messy issues.
+Removing these is not just good hygiene; it is the only way to build a model that could realistically be deployed.
 
-### Repository
+### Feature selection: two independent methods that agree
+
+With 32 features after encoding, the linear model needs pruning. Four *sequential* search strategies (forward, backward, and their floating variants) are compared by cross-validation error. In parallel, **Lasso regression** (which automatically zeros out weak coefficients) acts as an independent second opinion.
+
+![Feature selection CV curves](feature_selection/CVscoresVSfeatures_comparison.png)
+
+The two approaches largely agree: their **7-feature overlap** becomes the final feature set and scores best in a cross-validation check:
+
+| Feature set | Features | CV R² |
+|---|---:|---:|
+| Lasso + sequential overlap | 7 | **0.146** |
+| Lasso only | 11 | 0.145 |
+| Best sequential (SBS, 16 features) | 16 | 0.139 |
+| All 32 features | 32 | 0.121 |
+
+The winning features are: `num_affected_versions`, `num_labels`, `priority_Trivial`, `issue_type_Short`, and three frequent reporters. Notably, features extracted from the nested JSON export (`num_components`, `num_affected_versions`, `num_labels`) show up in every selection method — meaning the extra parsing effort paid off.
+
+### Survival analysis: using the unlabelled data
+
+Classic regression must discard the 324 still-open issues because they have no label. **Survival analysis** treats them as *censored observations* — we know the issue was still open at snapshot time, which is still useful information. Two survival models were fitted: **Cox proportional hazards** (interpretable through hazard ratios) and a **random survival forest**.
+
+![Kaplan-Meier curves by issue type](survival_analysis/km_by_issue_type.png)
+
+The Kaplan-Meier curves confirm the intuition behind the `Short`/`Long` issue-type grouping used throughout the project: issues classified as `Short` have a markedly higher probability of resolving early.
+
+---
+
+## Results
+
+All five models are evaluated on the same held-out 20% of the 1,134 resolved issues. All error metrics are on the **original day scale**.
+
+| Model | C-index | MAE (days) | Median AE (days) | R² (log) |
+|---|---:|---:|---:|---:|
+| Linear regression (OLS) | 0.613 | 50.0 | 5.4 | 0.130 |
+| Decision tree | 0.581 | 45.4 | 6.6 | 0.109 |
+| **Random forest** | **0.636** | 48.7 | **5.2** | **0.196** |
+| Cox PH | 0.597 | 56.8 | 12.0 | — |
+| Random survival forest | 0.617 | **45.0** | 9.8 | — |
+
+The **random forest** leads on ranking (C-index) and log-scale R². The **random survival forest** achieves the lowest mean absolute error while also exploiting the censored observations.
+
+![Predicted vs actual — all models on the pilot set](question2/predictionComparison_log.png)
+
+### The honest part: the long tail is systematically missed
+
+A median absolute error of ~5 days sounds impressive, but it is somewhat misleading. Most issues *are* short, so predicting a small number for everything already looks good on the median. For issues that actually took **more than 90 days**, the median prediction across all models is still only about **7 days** — less than a tenth of the real duration.
+
+This is not a bug; it is a fundamental property of the setup. A model trained to minimise error on `log(duration)` learns the typical case, not the extremes. The long tail is rare, weakly correlated with the available features at creation time, and essentially invisible to a median-oriented estimator.
+
+---
+
+## Lessons Learned
+
+- **Leakage is subtle.** Columns like `vote_count` look like useful features until you realise they grow proportionally with how long an issue has been open, making them completely circular as predictors for a *new* issue.
+- **Two independent feature-selection methods that agree give much stronger confidence than one.** The overlap between sequential search and Lasso was only 7 features, but those 7 outperformed larger sets in cross-validation.
+- **Log-transforming a skewed target is necessary, not cosmetic.** Without it, a handful of year-long issues would dominate the entire fit.
+- **Survival analysis is the right tool when some labels are missing by design.** Rather than discarding a quarter of the dataset, Cox PH and the random survival forest turn the still-open issues into an asset.
+- **Good median error can hide bad tail performance.** Evaluation metrics should always be checked on the subsets that matter most, not only on the whole test set.
+
+---
+
+## Future Directions
+
+Several natural extensions would push performance further, especially on the long tail:
+
+- **Quantile regression** — train a model to predict the 90th-percentile duration instead of the median, so it explicitly learns to catch the slow issues.
+- **Smearing correction** — multiply back-transformed predictions by the average exponentiated residual to remove the systematic downward bias.
+- **Tail-aware evaluation** — add metrics computed only on issues that truly took a long time, so improvements on the hard cases are visible.
+- **Two-stage modelling** — first classify "will this take more than 30 days?", then regress only within each class.
+
+
+## Repository
 
 Check out the [GitHub repository](https://github.com/andreabragantini/AVRO-case) for more details and to contribute to the project!
